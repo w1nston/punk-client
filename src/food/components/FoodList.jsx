@@ -4,17 +4,21 @@ import Accordion from './Accordion';
 import Beer from './Beer';
 
 const accordionStyle = css`
-  background-color: rgba(242, 246, 208, 0.1);
-  border: 1px solid #333;
-  border-radius: 4px;
-  margin: 10px 0;
-  padding: 20px 10px;
+  background-color: #fff;
+  border: 1px #888 solid;
+  border-radius: .25rem;
+  box-shadow: 1px 1px;
+  margin: 1rem .5rem;
+  padding: 0 1rem;
 
   @media (min-width: 992px) {
-    margin: 10px auto;
-    width: 500px;
+    margin: 1rem auto;
+    width: 31.25rem;
   }
 `;
+
+// TODO: send link from container...
+const urifyLink = name => name.replace(/\s/g, '+');
 
 const FoodList = ({ dishes }) => (
   <Fragment>
@@ -24,6 +28,7 @@ const FoodList = ({ dishes }) => (
           {open =>
             open ? (
               <Fragment>
+                <h3><a href={`https://google.com/search?q=recipe+${urifyLink(name)}`} target="_blank" rel="noopener noreferrer">Recipe</a></h3>
                 <h3>Beer suggestion</h3>
                 {beer &&
                   beer.map(beer => (

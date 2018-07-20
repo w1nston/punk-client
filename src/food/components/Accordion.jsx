@@ -15,6 +15,7 @@ class Accordion extends Component {
     return (
       <div className={this.props.className} onClick={this.handleClick}>
         <h2>{this.props.title}</h2>
+        <hr />
         {this.props.children(this.state.open)}
       </div>
     );
